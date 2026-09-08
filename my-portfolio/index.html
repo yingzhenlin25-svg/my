@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>個人作品集 | 大學四年成果展</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 導覽列 -->
+    <nav class="navbar" id="navbar">
+        <div class="logo">YOUR NAME.</div>
+        <ul class="nav-links">
+            <li><a href="#about" class="nav-item">關於我</a></li>
+            <li><a href="#skills" class="nav-item">核心技能</a></li>
+            <li><a href="#projects" class="nav-item">專案作品</a></li>
+            <li><a href="#timeline" class="nav-item">大學歷程</a></li>
+            <li><a href="#contact" class="nav-item">聯絡方式</a></li>
+        </ul>
+    </nav>
+
+    <!-- 首頁 Hero 區塊 -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>你好，我是 <span class="highlight">你的名字</span></h1>
+            <p>主修 [你的專業系所] | 專注於 [你的核心領域]</p>
+            <a href="#projects" class="btn">瀏覽作品成果</a>
+        </div>
+    </header>
+
+    <!-- 關於我 -->
+    <section id="about" class="section">
+        <h2 class="section-title">關於我</h2>
+        <div class="about-container">
+            <p class="about-text">
+                歡迎來到我的個人成果展！這裡記錄了我大學四年來的學習歷程與專案實作。
+                在校期間，我致力於將理論應用於實務，參與過多項跨領域專案與競賽，培養了良好的問題解決能力與團隊協作精神。
+            </p>
+        </div>
+    </section>
+
+    <!-- 核心技能 -->
+    <section id="skills" class="section bg-light">
+        <h2 class="section-title">核心技能</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>專業技能</h3>
+                <ul>
+                    <li>技能 / 工具 A</li>
+                    <li>技能 / 工具 B</li>
+                    <li>技能 / 工具 C</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h3>軟體與工具</h3>
+                <ul>
+                    <li>Git / GitHub</li>
+                    <li>Figma / Adobe CC</li>
+                    <li>VS Code / Office</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h3>軟實力</h3>
+                <ul>
+                    <li>專案管理與規劃</li>
+                    <li>團隊溝通與協調</li>
+                    <li>簡報表達與文案</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 專案/作品展示（支援 JS 分類篩選與彈窗檢視） -->
+    <section id="projects" class="section">
+        <h2 class="section-title">重點成果與作品</h2>
+        
+        <!-- JS 篩選按鈕 -->
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">全部作品</button>
+            <button class="filter-btn" data-filter="graduation">畢業專題</button>
+            <button class="filter-btn" data-filter="competition">競賽成果</button>
+            <button class="filter-btn" data-filter="course">課程代表作</button>
+        </div>
+
+        <div class="projects-grid">
+            <!-- 作品 1 -->
+            <div class="project-card" data-category="graduation" data-title="畢業專案 / 專題名稱" data-desc="這是畢業專題的詳細說明。我們針對 [目標問題] 進行分析與實作，採用了 [技術/方法] 解決痛點，並獲得了 [專案成果/效益]。">
+                <div class="project-info">
+                    <span class="tag">畢業專題</span>
+                    <h3>畢業專案 / 專題名稱</h3>
+                    <p>針對特定痛點進行的完整系統/設計專案...</p>
+                    <button class="btn-detail">檢視詳細資訊 &rarr;</button>
+                </div>
+            </div>
+
+            <!-- 作品 2 -->
+            <div class="project-card" data-category="competition" data-title="全國商業競賽作品" data-desc="代表學校參加全國競賽，團隊負責商業模式規劃與產品雛形驗證，最終順利進入決賽並獲得佳績。">
+                <div class="project-info">
+                    <span class="tag">競賽成果</span>
+                    <h3>全國商業競賽作品</h3>
+                    <p>跨領域團隊合作，專注於商業模式與產品驗證...</p>
+                    <button class="btn-detail">檢視詳細資訊 &rarr;</button>
+                </div>
+            </div>
+
+            <!-- 作品 3 -->
+            <div class="project-card" data-category="course" data-title="數據分析與展示專案" data-desc="大學三年的課程代表作品，利用數據分析方法與視覺化工具呈現研究結果。">
+                <div class="project-info">
+                    <span class="tag">課程代表作</span>
+                    <h3>數據分析與展示專案</h3>
+                    <p>將課堂理論轉化為實際問題解決的分析報告...</p>
+                    <button class="btn-detail">檢視詳細資訊 &rarr;</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 大學四年時間軸 -->
+    <section id="timeline" class="section bg-light">
+        <h2 class="section-title">大學四年歷程</h2>
+        <div class="timeline">
+            <div class="timeline-item fade-in">
+                <div class="timeline-date">大四 (2026)</div>
+                <div class="timeline-content">
+                    <h3>畢業專案展示與實習</h3>
+                    <p>完成畢業專案發表，並於企業進行實習，將學習成果投入業界實務。</p>
+                </div>
+            </div>
+            <div class="timeline-item fade-in">
+                <div class="timeline-date">大三 (2025)</div>
+                <div class="timeline-content">
+                    <h3>專業深化與商業競賽</h3>
+                    <p>代表學校參加競賽獲獎，並開始籌備團隊畢業專題。</p>
+                </div>
+            </div>
+            <div class="timeline-item fade-in">
+                <div class="timeline-date">大二 (2024)</div>
+                <div class="timeline-content">
+                    <h3>社團幹部與跨領域學習</h3>
+                    <p>擔任社團幹部籌劃大型活動，同時修習跨領域課程拓寬視野。</p>
+                </div>
+            </div>
+            <div class="timeline-item fade-in">
+                <div class="timeline-date">大一 (2023)</div>
+                <div class="timeline-content">
+                    <h3>基礎建立與探索</h3>
+                    <p>建立專業基礎學科能力，積極參與系學會與課外志工活動。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 聯絡方式 -->
+    <section id="contact" class="section">
+        <h2 class="section-title">聯絡我</h2>
+        <div class="contact-content">
+            <p>如果您對我的作品感興趣，或有任何合作機會，歡迎透過以下方式與我聯繫！</p>
+            <div class="contact-links">
+                <a href="mailto:your.email@example.com" class="btn">Email 聯絡我</a>
+                <a href="https://github.com/yourusername" target="_blank" class="btn btn-outline">GitHub</a>
+                <a href="https://linkedin.com/in/yourusername" target="_blank" class="btn btn-outline">LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- JS 彈窗 (Modal) -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3 id="modal-title">作品名稱</h3>
+            <p id="modal-desc">詳細說明內容...</p>
+        </div>
+    </div>
+
+    <!-- 頁尾 -->
+    <footer>
+        <p>&copy; 2026 Your Name. All Rights Reserved. Built with HTML, CSS & JavaScript.</p>
+    </footer>
+
+    <!-- 引入外部 JS 檔案 -->
+    <script src="script.js"></script>
+</body>
+</html>
