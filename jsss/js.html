@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoundPro X1 - 旗艦降噪無線耳機</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* 導覽列 */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+            background: linear-gradient(45deg, #2c3e50, #3498db);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .cart-icon {
+            position: relative;
+            font-size: 24px;
+            cursor: pointer;
+            background: #f1f2f6;
+            padding: 10px;
+            border-radius: 50%;
+            transition: transform 0.2s;
+        }
+
+        .cart-icon:hover {
+            transform: scale(1.1);
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #e74c3c;
+            color: white;
+            font-size: 12px;
+            padding: 2px 6px;
+            border-radius: 50%;
+            font-weight: bold;
+        }
+
+        /* 產品主區塊 */
+        .container {
+            max-width: 1100px;
+            margin: 50px auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            overflow: hidden;
+        }
+
+        .product-image {
+            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            position: relative;
+        }
+
+        .product-image img {
+            width: 100%;
+            max-width: 350px;
+            filter: drop-shadow(0 15px 15px rgba(0,0,0,0.2));
+            transition: transform 0.3s;
+        }
+
+        .product-image img:hover {
+            transform: scale(1.05);
+        }
+
+        .product-details {
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #e8f4fd;
+            color: #3498db;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            width: fit-content;
+        }
+
+        .product-title {
+            font-size: 32px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .product-price {
+            font-size: 28px;
+            color: #e74c3c;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .product-desc {
+            color: #7f8c8d;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .features li {
+            margin-bottom: 10px;
+            color: #555;
+            display: flex;
+            align-items: center;
+        }
+
+        .features li::before {
+            content: "✓";
+            color: #2ecc71;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .btn-buy {
+            background: linear-gradient(135deg, #ff7b54 0%, #ffb26b 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 123, 84, 0.4);
+            transition: all 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-buy:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 123, 84, 0.6);
+        }
+
+        .btn-buy:active {
+            transform: translateY(1px);
+        }
+
+        /* 錢飛走的特效元素樣式 */
+        .flying-money {
+            position: fixed;
+            font-size: 24px;
+            z-index: 1000;
+            pointer-events: none;
+            animation: flyToCart 0.8s cubic-bezier(0.15, 0.85, 0.35, 1.2) forwards;
+        }
+
+        @keyframes flyToCart {
+            0% {
+                opacity: 1;
+                transform: translate(0, 0) scale(1) rotate(0deg);
+            }
+            50% {
+                opacity: 0.9;
+                transform: translate(var(--dx-mid), var(--dy-mid)) scale(1.4) rotate(180deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(var(--dx), var(--dy)) scale(0.3) rotate(360deg);
+            }
+        }
+
+        /* RWD 適應手機 */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                margin: 20px;
+            }
+            header {
+                padding: 15px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">🎧 SoundCraft</div>
+        <div class="cart-icon" id="cartIcon">
+            🛒
+            <span class="cart-badge" id="cartBadge">0</span>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="product-image">
+            <!-- 使用高品質耳機示意圖 -->
+            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1000&auto=format&fit=crop" alt="SoundPro X1 耳機">
+        </div>
+        <div class="product-details">
+            <span class="tag">旗艦熱銷款</span>
+            <h1 class="product-title">SoundPro X1 主動降噪無線耳機</h1>
+            <div class="product-price">NT$ 6,880</div>
+            <p class="product-desc">
+                搭載頂級混合式主動降噪技術，結合高解析音質與 40 小時超長續航。無論身處何地，都能為您打造沉浸式的純淨音樂世界。
+            </p>
+            <ul class="features">
+                <li>混合式 ANC 主動降噪</li>
+                <li>Hi-Res 高解析音質認證</li>
+                <li>40小時超長續航力</li>
+                <li>配戴舒適零負擔</li>
+            </ul>
+            <button class="btn-buy" id="addCartBtn">加入購物車 (-$6,880)</button>
+        </div>
+    </div>
+
+    <script>
+        const addCartBtn = document.getElementById('addCartBtn');
+        const cartIcon = document.getElementById('cartIcon');
+        const cartBadge = document.getElementById('cartBadge');
+        
+        let cartCount = 0;
+
+        addCartBtn.addEventListener('click', (e) => {
+            // 1. 更新購物車數量
+            cartCount++;
+            cartBadge.textContent = cartCount;
+
+            // 2. 觸發錢飛走的特效
+            triggerMoneyFlyEffect(e.target);
+        });
+
+        function triggerMoneyFlyEffect(button) {
+            const btnRect = button.getBoundingClientRect();
+            const cartRect = cartIcon.getBoundingClientRect();
+
+            // 終點座標（購物車圖標中心）
+            const targetX = cartRect.left + cartRect.width / 2;
+            const targetY = cartRect.top + cartRect.height / 2;
+
+            // 產生存錢符號或鈔票的數量
+            const moneySymbols = ['💸', '💵', '💰', '-$6880', '💸'];
+
+            // 產生多個飛翔的元素營造噴錢特效
+            for (let i = 0; i < 8; i++) {
+                const money = document.createElement('div');
+                money.classList.add('flying-money');
+                money.textContent = moneySymbols[Math.floor(Math.random() * moneySymbols.length)];
+                
+                // 起始位置（按鈕周圍隨機偏移）
+                const startX = btnRect.left + btnRect.width / 2 + (Math.random() - 0.5) * 60;
+                const startY = btnRect.top + btnRect.height / 2 + (Math.random() - 0.5) * 20;
+
+                money.style.left = `${startX}px`;
+                money.style.top = `${startY}px`;
+
+                // 計算飛行向量與中間隨機曲線偏移
+                const dx = targetX - startX;
+                const dy = targetY - startY;
+                
+                const dxMid = dx * 0.5 + (Math.random() - 0.5) * 150;
+                const dyMid = dy * 0.3 - Math.random() * 100; // 往上拋的弧度
+
+                money.style.setProperty('--dx', `${dx}px`);
+                money.style.setProperty('--dy', `${dy}px`);
+                money.style.setProperty('--dx-mid', `${dxMid}px`);
+                money.style.setProperty('--dy-mid', `${dyMid}px`);
+
+                // 隨機動畫時間微調
+                const duration = 0.6 + Math.random() * 0.4;
+                money.style.animationDuration = `${duration}s`;
+
+                document.body.appendChild(money);
+
+                // 動畫結束後移除 DOM 元素
+                setTimeout(() => {
+                    money.remove();
+                }, duration * 1000);
+            }
+
+            // 讓按鈕有一點點點擊彈跳動畫
+            button.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                button.style.transform = 'none';
+            }, 100);
+        }
+    </script>
+</body>
+</html>
